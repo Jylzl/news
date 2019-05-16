@@ -3,7 +3,7 @@ const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
 
 const path = require('path')
-const defaultSettings = require('./settings.js')
+const defaultSettings = require('./src/settings.js')
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -36,7 +36,7 @@ module.exports = {
             },
             less: {
                 modifyVars: {
-                    red: '#03a9f4',
+                    red: '#277de2',
                     blue: '#3eaf7c',
                     orange: '#f08d49',
                     'text-color': '#111'

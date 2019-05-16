@@ -1,10 +1,11 @@
 <template>
 	<div>
-		<van-nav-bar class="p-header">
+		<van-nav-bar class="p-header" @click-right="onClickRight">
 			<h1 slot="left" class="p-logo"><span>手机网站</span></h1>
 			<van-icon name="search" slot="right" class="p-search" />
 		</van-nav-bar>
-		<van-tabs v-model="active" background="#edf5fa" title-active-color="#03a9f4" sticky>
+		<van-tabs v-model="active" background="#edf5fa" title-active-color="#03a9f4" :ellipsis="true"
+			:lazy-render="true" :animated="true" sticky>
 			<van-tab title="关注">
 				<Follow />
 			</van-tab>
@@ -33,9 +34,27 @@
 			return {
 				active: 0
 			}
+		},
+		methods: {
+			onClickRight() {
+				this.$router.push({
+					path: '/search',
+					name: 'search',
+					query: {
+						q: '孝感'
+					}
+				})
+			}
 		}
+
 	}
 </script>
+<style>
+	.van-tab--active .van-ellipsis {
+		font-weight: bold !important;
+	}
+</style>
+
 
 <style scoped>
 	.p-header {
@@ -63,10 +82,6 @@
 
 	.p-search {
 		font-size: 26px;
-		color: #FFFFFF !important;
-	}
-
-	.van-tab--active span{
-		font-weight: bold !important;
+		color: #ffffff !important;
 	}
 </style>
