@@ -14,6 +14,24 @@ const name = defaultSettings.title || 'news' // page title
 module.exports = {
     outputDir: 'docs',
     publicPath: process.env.NODE_ENV === 'production' ? '/vant-demo/' : '/',
+    devServer: {
+		open: true,
+		host: process.env.VUE_APP_APP_HOST,
+		port: process.env.VUE_APP_APP_PORT,
+		https: false,
+		hotOnly: false,
+		proxy: {
+			//配置跨域
+			"/api": {
+				target: process.env.VUE_APP_SERVER_API,
+				changOrigin: true,
+				ws: true,
+				pathRewrite: {
+					"^/api": ""
+				}
+			}
+		}
+	},
     pluginOptions: {
         'style-resources-loader': {
             preProcessor: 'less',

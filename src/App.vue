@@ -7,10 +7,15 @@
 			<van-tabbar-item icon="aim" to="about" dot>同城汇</van-tabbar-item>
 			<van-tabbar-item icon="friends-o" info="5">我的</van-tabbar-item>
 		</van-tabbar>
+		<RightBar></RightBar>
 	</div>
 </template>
 <script>
+	import RightBar from '@/components/tools/RightBar.vue'
 	export default {
+		components: {
+			RightBar
+		},
 		data() {
 			return {
 				active: 0

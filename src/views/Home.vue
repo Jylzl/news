@@ -35,6 +35,8 @@
 				active: 0
 			}
 		},
+		mounted() {
+		},
 		methods: {
 			onClickRight() {
 				this.$router.push({
